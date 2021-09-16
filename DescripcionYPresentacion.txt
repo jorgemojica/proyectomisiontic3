@@ -10,3 +10,4 @@ Además, se van a contar con los siguientes módulos:
 
 El desarrollo del proyecto se va a realizar mediante un grupo de 5 personas que conforman el equipo de trabajo:
 1) Nombre: Jorge Andrés Mojica Villamizar - Correo: jorgemojica32@gmail.com
+1) Nombre: Andres David Ariza Caceres - Correo: adac0212982@gmail.com
