@@ -11,7 +11,7 @@ const NavBar = () => {
         </Nav.Item>
 
         <Nav.Item>
-            <Nav.Link eventKey="link-2">PRODUCTOS</Nav.Link>
+            <Nav.Link href="/producto" eventKey="link-2">PRODUCTOS</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
