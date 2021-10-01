@@ -39,7 +39,6 @@ function App() {
         <Redirect component={NotFound}></Redirect>
       </Switch>
     </Router>
-
   );
 }
 
