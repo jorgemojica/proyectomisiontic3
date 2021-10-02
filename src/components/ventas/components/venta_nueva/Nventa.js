@@ -121,9 +121,10 @@ function Nproducto() {
                   </Col>
               </Form.Group>
               <Col md={12} className="d-flex justify-content-around">
-                <Link>
+                <Link to="/Aventas">
                   <Button className="mb-3"variant="primary">Ingresar</Button>
                 </Link>
+                
               </Col>
             </Form>
           </Col>
