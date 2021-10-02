@@ -9,6 +9,10 @@ import Nproducto from './components/productos/components/producto_nuevo/Nproduct
 import NavBar from './components/1home/components/NavBar';
 import GestionarUsuarios from './components/usuarios/GestionarUsuarios';
 import EditarUsuario from './components/usuarios/EditarUsuario';
+import Ventas from './components/ventas/components/administrador_Venta/Aventas'
+import BarraVentas from './components/ventas/components/administrador_Venta/Barra'
+import NVentas from './components/ventas/components/venta_nueva/Nventa'
+import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
 
 function App() {
   return (
@@ -35,6 +39,16 @@ function App() {
         <Route path="/editarUsuario" exact>
           <NavBar />
           <EditarUsuario />
+        </Route>
+        <Route path="/Aventas" exact>
+          <NavBar />
+          <HeaderVenta/>
+          <BarraVentas/>
+          <Ventas/>
+        </Route>
+        <Route path="/Nventa" exact>
+          <NavBar />
+          <NVentas/>
         </Route>
         <Redirect component={NotFound}></Redirect>
       </Switch>

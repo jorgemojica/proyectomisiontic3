@@ -1,13 +1,13 @@
 import Nav from 'react-bootstrap/Nav'
 const NavBar = () => {
     return(
-        <Nav justify variant="tabs" defaultActiveKey="/home" className="explorer">
+        <Nav justify variant="tabs" className="explorer">
         <Nav.Item>
             <Nav.Link href="/home">HOME</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
-            <Nav.Link eventKey="link-1">VENTAS</Nav.Link>
+            <Nav.Link href="/Aventas"eventKey="link-1">VENTAS</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
@@ -16,12 +16,7 @@ const NavBar = () => {
 
         <Nav.Item>
             <Nav.Link href="/usuarios" eventKey="link-3">USUARIOS</Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-            <Nav.Link eventKey="link-4">ROLES</Nav.Link>
-        </Nav.Item>
-        
+        </Nav.Item> 
         </Nav>
 
     );

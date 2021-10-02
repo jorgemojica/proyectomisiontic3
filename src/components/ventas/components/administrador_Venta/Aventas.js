@@ -10,7 +10,6 @@ class ListaVentas extends Component {
             <Container>
                 <Row  className="d-flex justify-content-center align-items-center mt-5"> 
                     <TablaVentas/> 
-                   
                 </Row> 
             </Container>
             

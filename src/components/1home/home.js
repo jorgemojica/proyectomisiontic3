@@ -7,6 +7,7 @@ import Logout from "./components/logout"
 const home = () => {
     return ( 
       <div className="divHome">
+      
       <NavBar/>
       <Logout/>
       <h1 className="text-center mt-5 mb-5">INFORMES GENERALES</h1>
