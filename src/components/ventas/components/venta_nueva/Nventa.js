@@ -14,7 +14,7 @@ function Nproducto() {
           <Row className="titulo d-flex justify-content-center mt-1 mb-5">
             <Col xs={6}>
               <div className="text-center">
-                <h1 >Nuevo producto</h1>
+                <h1 >Registrar Venta</h1>
               </div>
             </Col>
           </Row>  
