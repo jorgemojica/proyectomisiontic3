@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import "./Nproducto.css"
 function Nproducto() {
   return (
       <div>
