@@ -26,7 +26,7 @@ const TablaVentas = ()=>{
                 <td>{item.nombre}</td>
                 <td>{item.stock}</td>
                 <td>${item.precio}</td>
-                <td><a className= "link"href="/Nproducto">Editar</a></td>
+                <td><a className= "link"href="/Nventa">Editar</a></td>
                 <td><a className= "link"href="/Home">Eliminar</a></td> 
             </tr>
 
