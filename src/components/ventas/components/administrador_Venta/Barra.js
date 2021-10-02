@@ -8,10 +8,10 @@ const Barra = ()=>{
     return(
         <Col xs={12}>
             <ButtonToolbar
-        className="justify-content-between mb-4"
+        className="justify-content-between mb-5"
         aria-label="Toolbar with Button groups"
         >
-                <Link to="/Nventa">
+                <Link to="/Nventa">   
                     <Button variant="primary">Nueva venta</Button>
                 </Link>
                 <InputGroup>
