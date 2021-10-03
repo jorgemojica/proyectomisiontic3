@@ -8,7 +8,7 @@ const home = () => {
     return ( 
       <div className="divHome">
       
-      <NavBar/>
+      <NavBar pagina={"/home"}/>
       <Logout/>
       <h1 className="text-center mt-5 mb-5">INFORMES GENERALES</h1>
       <Cards />

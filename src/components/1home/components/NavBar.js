@@ -1,21 +1,21 @@
 import Nav from 'react-bootstrap/Nav'
-const NavBar = () => {
+const NavBar = ({ pagina}) => {
     return(
-        <Nav justify variant="tabs" className="explorer">
+        <Nav justify variant="tabs" defaultActiveKey={pagina} className="explorer">
         <Nav.Item>
             <Nav.Link href="/home">HOME</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
-            <Nav.Link href="/Aventas"eventKey="link-1">VENTAS</Nav.Link>
+            <Nav.Link href="/Aventas"eventKey="/Aventas">VENTAS</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
-            <Nav.Link href="/producto" eventKey="link-2">PRODUCTOS</Nav.Link>
+            <Nav.Link href="/producto" eventKey="/producto">PRODUCTOS</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
-            <Nav.Link href="/usuarios" eventKey="link-3">USUARIOS</Nav.Link>
+            <Nav.Link href="/usuarios" eventKey="/usuarios">USUARIOS</Nav.Link>
         </Nav.Item> 
         </Nav>
 

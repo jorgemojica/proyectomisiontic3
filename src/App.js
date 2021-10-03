@@ -24,29 +24,29 @@ function App() {
           <Home />
         </Route>
         <Route path="/producto" exact>
-          <NavBar />
+          <NavBar pagina={"/producto"}/>
           <Header />
           <ListaProductos />
         </Route>
         <Route path="/Nproducto" exact>
-          <NavBar />
+          <NavBar  pagina={"/Nproducto"}/>
           <Nproducto />
         </Route>
         <Route path="/usuarios" exact>
-          <NavBar />
+          <NavBar  pagina={"/usuarios"}/>
           <GestionarUsuarios />
         </Route>
         <Route path="/editarUsuario" exact>
-          <NavBar />
+          <NavBar  pagina={"/editarUsuario"}/>
           <EditarUsuario />
         </Route>
         <Route path="/Aventas" exact>
-          <NavBar />
+          <NavBar pagina={"/Aventas"} />
           <HeaderVenta/>
           <Ventas/>
         </Route>
         <Route path="/Nventa" exact>
-          <NavBar />
+          <NavBar pagina={"/Nventa"}/>
           <NVentas/>
         </Route>
         <Redirect component={NotFound}></Redirect>
