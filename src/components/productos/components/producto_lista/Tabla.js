@@ -1,7 +1,18 @@
 import Table from 'react-bootstrap/Table'
-import productos from '../../producto/ListaProductos.json';
-
+// import productos from '../../producto/ListaProductos.json';
+import api from "../../../../api";
+import { useEffect } from "react";
+import React, { useState } from "react";
 const Tabla = ()=>{
+    const [productos, setProductos] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.products.list();
+      setProductos(response);
+    };
+
+    fetchData();
+  }, []);
     return(
         <Table striped bordered hover variant="secondary">
             <thead >
@@ -19,8 +30,8 @@ const Tabla = ()=>{
             
             {productos.map(item => (
                 
-            <tr key={item.id}>
-                <td>{item.id}</td>
+            <tr key={item._id}>
+                <td>{item._id}</td>
                 <td>{item.nombre}</td>
                 <td>{item.stock}</td>
                 <td>${item.precio}</td>

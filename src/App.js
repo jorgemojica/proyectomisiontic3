@@ -26,7 +26,7 @@ function App() {
         <Route path="/producto" exact>
           <NavBar pagina={"/producto"}/>
           <Header />
-          <ListaProductos />
+          <ListaProductos/>
         </Route>
         <Route path="/Nproducto" exact>
           <NavBar  pagina={"/Nproducto"}/>
