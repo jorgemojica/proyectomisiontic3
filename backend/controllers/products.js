@@ -10,7 +10,8 @@ exports.addProduct = (req, res) => {
   const productoAdd = new Producto({
     nombre: req.body.nombre,
     stock: req.body.stock,
-    precio: req.body.precio
+    precio: req.body.precio,
+    url: req.body.url
   });
 
   productoAdd.save().then((createdProduct) => {

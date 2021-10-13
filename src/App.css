@@ -135,3 +135,20 @@ label[for="textRecover"]{
 .text-center{
   margin-top: 60px;
 }
+.imagen{
+  width: 100px;
+  height: 100px;
+  display:block;
+  margin:auto;
+}
+
+.letra{
+  text-align: center;
+  font-size:22px;
+  color:white;
+  background:blue !important;
+}
+.centrar{
+  vertical-align: middle;
+  text-align: center;
+}
