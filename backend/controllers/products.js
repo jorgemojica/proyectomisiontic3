@@ -17,6 +17,9 @@ exports.addProduct = (req, res) => {
   productoAdd.save().then((createdProduct) => {
     console.log(createdProduct);
     res.status(201).json("Creado satisfactoriamente");
+  })
+  .catch((error) => {
+    res.status(500).json({ err: error });
   });
 };
 

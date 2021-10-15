@@ -6,7 +6,27 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import "./Nproducto.css"
+import React, { useState, useEffect } from "react";
+import api from "../../../../api";
 function Nproducto() {
+  const [productos, setProductos] = useState([]);
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
+
+  const [newProduct, setNewProduct] = useState({
+    nombre: "",
+    stock: "",
+    pricio: 0,
+    url: "",
+  });
+  const handleChange = (event) => {
+    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+  };
+
+  const handleClick = async () => {
+    const apiResponse = await api.products.create(newProduct);
+      setProductos([...productos, newProduct]);
+  };
   return (
       <div>
         <header>
@@ -29,7 +49,8 @@ function Nproducto() {
                     Nombre:
                   </Form.Label>
                   <Col md={12}sm={10}>
-                    <Form.Control type="text" placeholder="Nombre del producto"/>
+                    <Form.Control type="text" name="nombre"
+                  onChange={handleChange} placeholder="Nombre del producto"/>
                   </Col>
                 </Form.Group>
 
@@ -38,7 +59,8 @@ function Nproducto() {
                     Stock:
                   </Form.Label>
                   <Col md={12} sm={10}>
-                    <Form.Control type="text" placeholder="Stock en tienda" />
+                    <Form.Control type="text" name="stock"
+                  onChange={handleChange} placeholder="Stock en tienda" />
                   </Col>
                 </Form.Group>
 
@@ -47,14 +69,24 @@ function Nproducto() {
                     Precio:
                   </Form.Label>
                   <Col md={12} sm={10}>
-                    <Form.Control type="text" placeholder="Precio producto" />
+                    <Form.Control type="text" name="precio"
+                  onChange={handleChange} placeholder="Precio producto" />
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-5" controlId="formUrl">
+                  <Form.Label column sm={2}>
+                    Url:
+                  </Form.Label>
+                  <Col md={12} sm={10}>
+                    <Form.Control type="text" name="url"
+                  onChange={handleChange} placeholder="Url Imagen" />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} className="mb-5">
                   <Col md={12} className="d-flex justify-content-around">
                     <Link to="/producto">
-                      <Button type="submit">Aceptar</Button>
+                      <Button onClick={handleClick} type="submit">Aceptar</Button>
                     </Link>
                     <Link to="/producto">
                       <Button variant="danger" type="submit">Cancelar</Button>
