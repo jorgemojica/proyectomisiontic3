@@ -13,6 +13,13 @@ const Tabla = ()=>{
 
     fetchData();
   }, []);
+
+  const deleteProduct =(event) =>{
+    const id = event.target.id;
+    api.products.delete(id);
+    const newProducts = productos.filter((product) => product._id !== id);
+    setProductos(...[newProducts]);
+  };
     return(
         <Table striped bordered hover variant="secondary">
             <thead >
@@ -35,8 +42,8 @@ const Tabla = ()=>{
                 <td className="centrar">{item.nombre}</td>
                 <td className="centrar">{item.stock}</td>
                 <td className="centrar">${item.precio}</td>
-                <td className="centrar"><a className= "link"href="/Nproducto">Editar</a></td>
-                <td className="centrar"><a className= "link"href="/Home">Eliminar</a></td> 
+                <td className="centrar"><a className= "link"href={`/Nproducto/Edit/${item._id}`}>Editar</a></td>
+                <td className="centrar"><a className= "link"onClick={deleteProduct} id={item._id}>Eliminar</a></td> 
             </tr>
 
             ))}

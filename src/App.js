@@ -6,6 +6,7 @@ import NotFound from './components/1home/components/NotFound';
 import ListaProductos from './components/productos/components/producto_lista/Productos';
 import Header from './components/productos/components/producto_lista/Header';
 import Nproducto from './components/productos/components/producto_nuevo/Nproducto';
+import EditarProducto from './components/productos/components/producto_nuevo/editarProducto';
 import NavBar from './components/1home/components/NavBar';
 import GestionarUsuarios from './components/usuarios/GestionarUsuarios';
 import EditarUsuario from './components/usuarios/EditarUsuario';
@@ -31,6 +32,10 @@ function App() {
         <Route path="/Nproducto" exact>
           <NavBar  pagina={"/Nproducto"}/>
           <Nproducto />
+        </Route>
+        <Route path="/Nproducto/Edit/:productId" exact>
+          <NavBar  pagina={"/Nproducto"}/>
+          <EditarProducto />
         </Route>
         <Route path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>

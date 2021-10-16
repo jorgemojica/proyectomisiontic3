@@ -1,5 +1,4 @@
-
-
+import { useParams, useHistory } from "react-router-dom";
 import Container from 'react-bootstrap/Container';   
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,16 +6,13 @@ import Alert from 'react-bootstrap/Alert';
 import "./Nproducto.css"
 import React, { useState, useEffect } from "react";
 import api from "../../../../api";
-import { useHistory } from "react-router-dom";
 import ProductForm from './ProductForm';
-// import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
-// import { Link } from 'react-router-dom';
-function Nproducto() {
+function Editarproducto() {
   const history = useHistory();
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
+  const {productId}= useParams();
 
   const [newProduct, setNewProduct] = useState({
     nombre: "",
@@ -24,19 +20,28 @@ function Nproducto() {
     pricio: 0,
     url: "",
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.products.getProduct(productId);
+      setNewProduct(response);
+    };
+
+    fetchData();
+  }, [productId]);
   const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.products.create(newProduct);
+    const apiResponse = await api.products.edit(newProduct);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
       setProductos([...productos, newProduct]);
-      // history.push("/");
+      history.push("/producto");
     }
   };
   return (
@@ -46,7 +51,7 @@ function Nproducto() {
             <Row className="titulo d-flex justify-content-center mt-1 mb-5">
               <Col xs={6}>
                 <div className="text-center">
-                  <h1 >Nuevo producto</h1>
+                  <h1 >Editar producto</h1>
                   {error && <Alert variant="danger">{error}</Alert>}
                   {success && <Alert variant="success">{success}</Alert>}
                 </div>
@@ -67,4 +72,4 @@ function Nproducto() {
   );
 }
 
-export default Nproducto;
+export default Editarproducto;

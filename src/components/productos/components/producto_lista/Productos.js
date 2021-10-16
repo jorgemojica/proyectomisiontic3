@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Barra from './Barra';
 import Tabla from './Tabla';
 class ListaProductos extends Component {
-    
     render () {
         return (
             <Container>

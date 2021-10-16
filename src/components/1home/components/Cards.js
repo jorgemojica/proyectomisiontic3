@@ -1,41 +1,46 @@
-import { CardGroup } from 'react-bootstrap'
-import Card from 'react-bootstrap/Card'
-import Zapa from './zapaNike.png'
-import User from './user.png'
-import Zapatos from './zapatos-deportivos-3-1.jpg.opdownload'
+// import { CardGroup } from 'react-bootstrap'
+// import Card from 'react-bootstrap/Card'
+// import Zapa from './zapaNike.png'
+// import User from './user.png'
+// import Zapatos from './zapatos-deportivos-3-1.jpg.opdownload'
 //import Placeholder from 'react-bootstrap/Placeholder'
+// import Button from "react-bootstrap/Button";
+// import Badge from "react-bootstrap/Badge";
 
-const Cards = () => {
-    return(
-    <CardGroup>
-      <Card style={{ width: '580px' }}>
-        <Card.Body>
-          <Card.Title>ARTICULO MAS VENDIDO</Card.Title>
-          <Card.Img variant="top" src={Zapa} height='300px'/>
-          <Card.Text>Zapatilla Nike</Card.Text>
-          <Card.Text>200 U$D</Card.Text>
-          </Card.Body>
-      </Card>
+// const Cards = ({
+//   id,
+//   precio,
+//   nombre,
+//   stock,
+//   productos,
+// }) => {
+//   return(
+//     <div>
+//       <h3 >
+//         {nombre}
+//       </h3>
+//       <h3 >
+//         precio: ${precio}
+//       </h3>
+//       <h3 >
+//         existencia: {stock}
+//       </h3>
+// </div>
+//   )
 
-      <Card style={{ width: '640px' }}>
-        <Card.Body>
-          <Card.Title>MEJOR VENDEDOR</Card.Title>
-          <Card.Img variant="top" src={User} width='150px' height='300px'/>
-          <Card.Text>Alvaro Garcia</Card.Text>
-          <Card.Text>50 Ventas</Card.Text>
-          </Card.Body>
-      </Card>
+  // if (isLoggedIn) {
+  //   return (
+  //     <Button id={id} variant="primary" onClick={AddProduct}>
+  //       ${precio}
+  //     </Button>
+  //   );
+  // } else {
+  //   return (
+  //     <Badge pill bg="secondary">
+  //       {categoria.nombre}
+  //     </Badge>
+  //   );
+  // }
+// };
 
-      <Card style={{ width: '640px' }}>
-        <Card.Body>
-          <Card.Title>CATEGORIA MAS VENDIDA</Card.Title>
-          <Card.Img variant="top" src={Zapatos}/>
-          <Card.Text>Zapatos</Card.Text>
-          <Card.Text>Deportivos</Card.Text>
-          </Card.Body>
-      </Card>
-    </CardGroup>
-    );
-}
-
-export default Cards;
+// export default Cards;
