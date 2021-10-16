@@ -1,13 +1,30 @@
 // {BrowserRouter as Router} from "react-router-dom";
 import './login.css'
-import logo from './FIUMBA.png';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-import Container from 'react-bootstrap/Container'
+import logo from './salestic.gif';
+import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image'
-import { Link } from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
+import React from "react";
+import api from '../../api';
 
 const login = () => {
+    const loginError = (err) =>{
+      console.log(err)
+    };
+
+    const Success = (res) => {
+      localStorage.setItem("token", res.tokenId);
+      api.user.getUser().then(res =>
+        {
+          if(res==="Activo"){
+            window.location.href='/home';
+          }else if(res==="Inactivo"){
+            window.location.href="/"
+            localStorage.removeItem("token");
+          }
+        }
+      );
+    }
       return(
         <Form method="POST" className="formLogin">
           <div className="title">
@@ -15,31 +32,21 @@ const login = () => {
           </div>
             
           <div className="text-center">  
-          <Image src={logo} height="120px" width="120px" roundedCircle/> 
+          <Image src={logo} height="300px" width="300px" roundedCircle/> 
           </div>
-          
-          <Container>
-            <div className="userDiv">
-              <Form.Label><b>Username or email</b></Form.Label>
-              <Form.Control type="email"></Form.Control>
-            </div>
-          
-            <div className="passwordDiv">
-              <Form.Label><b>Password</b></Form.Label>
-              <Form.Control type="password"></Form.Control>
-            </div>
 
-            <div className="text-center">
-            <Link to="/home">
-            <Button type="submit" variant="primary">Login</Button>
-            </Link>
-            </div>
-            
-            <div className="forgotPassword">
-            <Link to="/">¿Olvidó su contraseña?</Link>
-            </div>
-
-            </Container>
+          <GoogleLogin
+            clientId="352807164894-esm84cpo8fhgq8m123u9m159e66riu7n.apps.googleusercontent.com"
+            render={renderProps => (
+              <div className="buttonDiv">
+              <button className="button" onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</button>
+              </div>
+            )}
+            buttonText="Login"
+            onSuccess={Success}
+            onFailure={loginError}
+            cookiePolicy={'single_host_origin'}
+          />
       </Form>
       );
 }

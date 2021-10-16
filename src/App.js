@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Login from './components/login/login'
 import Home from './components/1home/home'
 import ListaProductos from './components/productos/components/producto_lista/Productos';
@@ -11,43 +11,53 @@ import EditarUsuario from './components/usuarios/EditarUsuario';
 import Ventas from './components/ventas/components/administrador_Venta/Aventas'
 import NVentas from './components/ventas/components/venta_nueva/Nventa'
 import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
+import PrivateRoute from './components/login/PrivateRoute';
 
 function App() {
   return (
     <Router>
       <Switch>
+
         <Route path="/" exact>
           <Login />
         </Route>
-        <Route path="/home" exact>
+
+        <PrivateRoute path="/home" exact>
           <Home />
-        </Route>
-        <Route path="/producto" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/producto" exact>
           <NavBar pagina={"/producto"}/>
           <Header />
           <ListaProductos/>
-        </Route>
-        <Route path="/Nproducto" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/Nproducto" exact>
           <NavBar  pagina={"/Nproducto"}/>
           <Nproducto />
-        </Route>
-        <Route path="/usuarios" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>
           <GestionarUsuarios />
-        </Route>
-        <Route path="/editarUsuario" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/editarUsuario" exact>
           <NavBar  pagina={"/editarUsuario"}/>
           <EditarUsuario />
-        </Route>
-        <Route path="/Aventas" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/Aventas" exact>
           <NavBar pagina={"/Aventas"} />
           <HeaderVenta/>
           <Ventas/>
-        </Route>
-        <Route path="/Nventa" exact>
+        </PrivateRoute>
+
+        <PrivateRoute path="/Nventa" exact>
           <NavBar pagina={"/Nventa"}/>
           <NVentas/>
-        </Route>
+        </PrivateRoute>
+        
       </Switch>
     </Router>
   );
