@@ -1,3 +1,4 @@
+const producto = require("../models/producto");
 const Producto = require("../models/producto");
 
 exports.getProducts = (req, res) => {
@@ -38,3 +39,24 @@ exports.getProductoDisponible = (req, res) => {
     res.status(200).json(productoResult);
   });
 };
+
+exports.deleteProduct = (req, res) => {
+  const id = req.params.id;
+  producto.deleteOne({_id : id}).then((productoResult) =>{
+    res.status(200).json("Eliminado satisfactoriamente");
+  })
+}
+
+exports.editProductId = (req, res) => {
+  const id = req.params.id;
+  const productoUpd = new Producto({
+    _id: id,
+    nombre: req.body.nombre,
+    stock: req.body.stock,
+    precio: req.body.precio,
+    url: req.body.url
+  });
+  producto.findByIdAndUpdate(id, productoUpd).then((productoResult) =>{
+    res.status(200).json("El Producto se actualizo satisfactoriamente");
+  })
+}
