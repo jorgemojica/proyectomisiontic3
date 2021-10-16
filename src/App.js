@@ -1,8 +1,7 @@
 import './App.css';
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './components/login/login'
 import Home from './components/1home/home'
-import NotFound from './components/1home/components/NotFound';
 import ListaProductos from './components/productos/components/producto_lista/Productos';
 import Header from './components/productos/components/producto_lista/Header';
 import Nproducto from './components/productos/components/producto_nuevo/Nproducto';
@@ -49,7 +48,6 @@ function App() {
           <NavBar pagina={"/Nventa"}/>
           <NVentas/>
         </Route>
-        <Redirect component={NotFound}></Redirect>
       </Switch>
     </Router>
   );

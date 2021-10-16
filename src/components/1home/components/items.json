@@ -1,0 +1,21 @@
+[
+    {
+        "title": "PRODUCTO MAS VENDIDO",
+        "description": "Nike AJKO 1 x Billie Eilish",
+        "text": "500 USD",
+        "url": "https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/93ba59fb-dfc4-4c61-bb27-ac37cb2e413f/fecha-de-lanzamiento-del-ajko-1-billie-eilish.jpg"
+    },
+    {
+      "title": "MEJOR VENDEDOR",
+      "description": "Alvaro Gomez",
+      "text": "50 Ventas",
+      "url": "https://images.vexels.com/media/users/3/137048/isolated/preview/64370a4a1c04a2bade31e1d46376270b-icono-de-trazo-de-persona-de-usuario.png"
+    },
+    {
+      "title": "CATEGORIA MAS VENDIDA",
+      "description": "Camisas deportivas Adidas",
+      "text": "400 ventas",
+      "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/8208edb701a944a5bf65aaa400f0d356_9366/Camiseta_para_correr_Run_It_3_Rayas_Negro_ED9294_01_laydown.jpg"
+    }
+    
+]
