@@ -1,7 +1,7 @@
 //import { Link } from 'react-router-dom';
 import "./home.css"
 import NavBar from './components/NavBar';
-import Cards from "./components/Cards";
+// import Cards from "./components/Cards";
 import Logout from "./components/logout"
 import React, { useState } from "react";
 import { useEffect } from "react";
