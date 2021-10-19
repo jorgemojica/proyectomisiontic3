@@ -34,11 +34,42 @@ const callApi = async (url,options ={}) => {
         return callApi(`/products/${id}`);
       },
     },
-    // categorias: {
-    //   list() {
-    //     return callApi("/categoria");
-    //   },
-    // },
+    // ventas
+
+    ventas: {
+      list() {
+        return callApi("/ventas");
+      },
+      create(ventas) {
+        return callApi("/ventas",{method: "POST", body:JSON.stringify(ventas)});
+      
+      },
+  
+      delete(id) {
+        console.log("API1");
+        return callApi(`/ventas/${id}`, {
+          method: "DELETE",
+          
+        });
+       
+      },
+
+      getVentasId(id){
+        console.log(id);
+        return callApi(`/ventas/${id}`);
+       
+      },
+
+
+     edit(ventas){
+        return callApi(`/ventas/${ventas._id}`,{
+            method: "PUT",
+            body: JSON.stringify(ventas),
+        });
+      },
+  
+    },
+  
   };
   
   export default api;

@@ -13,6 +13,7 @@ import EditarUsuario from './components/usuarios/EditarUsuario';
 import Ventas from './components/ventas/components/administrador_Venta/Aventas'
 import NVentas from './components/ventas/components/venta_nueva/Nventa'
 import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
+import EditarVetans from './components/ventas/components/venta_nueva/editarVenta'
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
         <Route path="/Nproducto/Edit/:productId" exact>
           <NavBar  pagina={"/Nproducto"}/>
           <EditarProducto />
+        </Route>
+
+        <Route path="/Nventa/Edit/:ventasId" exact>
+          <NavBar  pagina={"/editarVentas"}/>
+          <EditarVetans />
         </Route>
         <Route path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>
