@@ -35,6 +35,9 @@ const callApi = async (url,options ={}) => {
       getProduct(id){
         return callApi(`/products/${id}`);
       },
+      getName(id){
+        return callApi(`/products/disponibles/${id}`);
+      },
     },
     user:{
       getUser(){

@@ -34,7 +34,7 @@ exports.getProductId = (req, res) => {
 };
 
 exports.getProductoDisponible = (req, res) => {
-  Producto.find({ stock:45 }).exec().then((productoResult) => {
+  Producto.find({ stock:124 }).exec().then((productoResult) => {
     res.status(200).json(productoResult);
   });
 };
