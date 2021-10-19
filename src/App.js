@@ -13,6 +13,8 @@ import EditarUsuario from './components/usuarios/EditarUsuario';
 import Ventas from './components/ventas/components/administrador_Venta/Aventas'
 import NVentas from './components/ventas/components/venta_nueva/Nventa'
 import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
+import EditarVetans from './components/ventas/components/venta_nueva/editarVenta'
+
 import PrivateRoute from './components/login/PrivateRoute';
 import Logout from'./components/1home/components/logout';
 function App() {
@@ -40,6 +42,13 @@ function App() {
           <NavBar  pagina={"/Nproducto"}/>
           <Logout/>
           <EditarProducto />
+        </Route>
+
+        <Route path="/Nventa/Edit/:ventasId" exact>
+          <NavBar  pagina={"/editarVentas"}/>
+          <EditarVetans />
+        </Route>
+        <Route path="/usuarios" exact>
         </PrivateRoute>
         <PrivateRoute path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>
