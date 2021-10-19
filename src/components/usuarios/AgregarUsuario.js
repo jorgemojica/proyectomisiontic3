@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
@@ -8,10 +7,9 @@ import { Link } from 'react-router-dom';
 import api from '../../api';
 import { useHistory } from "react-router-dom";
 
-const EditarUsuario = ({ usuarios, setUsuarios }) => {
+const AgregarUsuario = ({ usuarios, setUsuarios }) => {
 
     const history = useHistory();
-    const { id } = useParams();
 
     const [nuevoUsuario, setNuevoUsuario] = useState({
         email: "",
@@ -20,31 +18,14 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
         rol: ""
     });
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await api.usuarios.list();
-            setUsuarios(response);
-        };
-        fetchData();
-        // console.log(usuarios);
-    }, []);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await api.usuarios.getUsuario(id);
-            setNuevoUsuario(response);
-            console.log(id);
-            console.log(response);
-        };
-        fetchData();
-    }, [id]);
-
     const handleChange = (event) => {
         setNuevoUsuario({ ...nuevoUsuario, [event.target.name]: event.target.value });
     };
 
     const handleClick = async () => {
-        const apiResponse = await api.usuarios.edit(nuevoUsuario);
+        const apiResponse = await api.usuarios.create(nuevoUsuario);
+        console.log(nuevoUsuario);
+        console.log(apiResponse);
         setUsuarios([...usuarios, nuevoUsuario]);
         history.push("/usuarios");
     };
@@ -53,7 +34,6 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
         { id: 1, nombre: "Administrador" },
         { id: 2, nombre: "Vendedor" }
     ];
-
     const activos = [
         { id: 1, nombre: "true" },
         { id: 2, nombre: "false" },
@@ -63,7 +43,7 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
     return (
         <Container className="mt-5">
             <div className="text-center mb-5">
-                <h1>Editar Usuario</h1>
+                <h1>Agregar Usuario</h1>
             </div>
             <Form className="d-flex justify-content-center align-items-center">
                 <Container className="col-4">
@@ -72,25 +52,20 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
                             <Form.Label>Nombre:</Form.Label>
                             <Form.Control
                                 onChange={handleChange}
-                                value={nuevoUsuario.nombre}
                                 name="nombre"
-                                type="text"
-                                readOnly />
+                                type="text" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Email:</Form.Label>
                             <Form.Control
                                 onChange={handleChange}
-                                value={nuevoUsuario.email}
                                 name="email"
-                                type="text"
-                                readOnly />
+                                type="text" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Rol:</Form.Label>
                             <Form.Select
                                 onChange={handleChange}
-                                value={nuevoUsuario.rol}
                                 name="rol">
                                 <option>Seleccione un rol...</option>
                                 {roles.map(rol => (
@@ -102,7 +77,6 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
                             <Form.Label>Estado:</Form.Label>
                             <Form.Select
                                 onChange={handleChange}
-                                value={nuevoUsuario.activo}
                                 name="activo">
                                 <option>Seleccione un estado...</option>
                                 {activos.map(activo => (
@@ -126,4 +100,4 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
     );
 }
 
-export default EditarUsuario;
+export default AgregarUsuario;

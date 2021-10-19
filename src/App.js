@@ -14,10 +14,25 @@ import Ventas from './components/ventas/components/administrador_Venta/Aventas'
 import NVentas from './components/ventas/components/venta_nueva/Nventa'
 import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
 import EditarVetans from './components/ventas/components/venta_nueva/editarVenta'
-
+import { useState, useEffect } from 'react';
 import PrivateRoute from './components/login/PrivateRoute';
 import Logout from'./components/1home/components/logout';
+import AgregarUsuario from './components/usuarios/AgregarUsuario';
+import api from './api';
+
 function App() {
+
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.usuarios.list();
+      setUsuarios(response);
+    };
+    fetchData();
+    // console.log(usuarios);
+  }, []);
+
   return (
     <Router>
       <Switch>
@@ -55,10 +70,13 @@ function App() {
           <Logout/>
           <GestionarUsuarios />
         </PrivateRoute>
-        <PrivateRoute path="/editarUsuario" exact>
+        <PrivateRoute path="/editarUsuario/:id" exact>
           <NavBar  pagina={"/editarUsuario"}/>
-          <Logout/>
-          <EditarUsuario />
+          <EditarUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
+        </PrivateRoute>
+        <PrivateRoute path="/agregarUsuario" exact>
+          <NavBar  pagina={"/agregarUsuario"}/>
+          <AgregarUsuario usuarios={usuarios} setUsuarios={setUsuarios}/>
         </PrivateRoute>
         <PrivateRoute path="/Aventas" exact>
           <NavBar pagina={"/Aventas"} />

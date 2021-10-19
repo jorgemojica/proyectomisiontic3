@@ -6,6 +6,7 @@ var app = express();
 const productsRoutes = require("./routes/products");
 const ventasRoutes = require("./routes/ventas");
 const userRoutes = require("./routes/user");
+const usuariosRoutes = require("./routes/usuarios");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +21,7 @@ mongoose
 
 app.use("/api/products", productsRoutes);
 app.use("/api/ventas", ventasRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/usuarios", usuariosRoutes);
 
-app.use("/api/user", userRoutes)
 module.exports = app;
