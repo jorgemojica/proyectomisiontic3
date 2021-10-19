@@ -42,14 +42,14 @@ function App() {
           <NavBar  pagina={"/Nproducto"}/>
           <Logout/>
           <EditarProducto />
-        </Route>
+        </PrivateRoute>
 
-        <Route path="/Nventa/Edit/:ventasId" exact>
+        <PrivateRoute path="/Nventa/Edit/:ventasId" exact>
           <NavBar  pagina={"/editarVentas"}/>
           <EditarVetans />
-        </Route>
-        <Route path="/usuarios" exact>
         </PrivateRoute>
+        {/* <PrivateRoute path="/usuarios" exact>
+        </PrivateRoute> */}
         <PrivateRoute path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>
           <Logout/>

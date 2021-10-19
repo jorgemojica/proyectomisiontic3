@@ -30,7 +30,7 @@ const Tabla = ()=>{
   };
   const deleteProduct =(event) =>{
     const id = event.target.id;
-    api.products.getProduct(id);
+    api.products.delete(id);
     const newProducts = productos.filter((product) => product._id !== id);
     setProductos(...[newProducts]);
   };

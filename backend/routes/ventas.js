@@ -6,15 +6,15 @@ const router = express.Router();
 
 
 const VentasController = require("../controllers/ventas");
+const auth = require("../middleware/auth")
+router.get("",auth, VentasController.getVentas);
 
-router.get("", VentasController.getVentas);
-
-router.post("", VentasController.addVentas);
+router.post("",auth, VentasController.addVentas);
 router.delete("/:id", VentasController.deleteVentas);
 
 //router.get("/disponibles", ProductController.getProductoDisponible);
-router.get("/:id", VentasController.getVentasId);
-router.put("/:id", VentasController.editVentastId);
+router.get("/:id",auth, VentasController.getVentasId);
+router.put("/:id",auth, VentasController.editVentastId);
 /*
 
 router.get("/disponibles", ProductController.getProductoDisponible);
