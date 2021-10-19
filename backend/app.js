@@ -5,6 +5,8 @@ var app = express();
 
 const productsRoutes = require("./routes/products");
 const ventasRoutes = require("./routes/ventas");
+const userRoutes = require("./routes/user");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -19,4 +21,5 @@ mongoose
 app.use("/api/products", productsRoutes);
 app.use("/api/ventas", ventasRoutes);
 
+app.use("/api/user", userRoutes)
 module.exports = app;

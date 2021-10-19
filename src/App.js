@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Login from './components/login/login'
 import Home from './components/1home/home'
-import NotFound from './components/1home/components/NotFound';
+// import NotFound from './components/1home/components/NotFound';
 import ListaProductos from './components/productos/components/producto_lista/Productos';
 import Header from './components/productos/components/producto_lista/Header';
 import Nproducto from './components/productos/components/producto_nuevo/Nproducto';
@@ -15,6 +15,8 @@ import NVentas from './components/ventas/components/venta_nueva/Nventa'
 import HeaderVenta from './components/ventas/components/administrador_Venta/Header'
 import EditarVetans from './components/ventas/components/venta_nueva/editarVenta'
 
+import PrivateRoute from './components/login/PrivateRoute';
+import Logout from'./components/1home/components/logout';
 function App() {
   return (
     <Router>
@@ -22,20 +24,23 @@ function App() {
         <Route path="/" exact>
           <Login />
         </Route>
-        <Route path="/home" exact>
+        <PrivateRoute path="/home" exact>
           <Home />
-        </Route>
-        <Route path="/producto" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/producto" exact>
           <NavBar pagina={"/producto"}/>
+          <Logout/>
           <Header />
           <ListaProductos/>
-        </Route>
-        <Route path="/Nproducto" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/Nproducto" exact>
           <NavBar  pagina={"/Nproducto"}/>
+          <Logout/>
           <Nproducto />
-        </Route>
-        <Route path="/Nproducto/Edit/:productId" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/Nproducto/Edit/:productId" exact>
           <NavBar  pagina={"/Nproducto"}/>
+          <Logout/>
           <EditarProducto />
         </Route>
 
@@ -44,23 +49,29 @@ function App() {
           <EditarVetans />
         </Route>
         <Route path="/usuarios" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/usuarios" exact>
           <NavBar  pagina={"/usuarios"}/>
+          <Logout/>
           <GestionarUsuarios />
-        </Route>
-        <Route path="/editarUsuario" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/editarUsuario" exact>
           <NavBar  pagina={"/editarUsuario"}/>
+          <Logout/>
           <EditarUsuario />
-        </Route>
-        <Route path="/Aventas" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/Aventas" exact>
           <NavBar pagina={"/Aventas"} />
+          <Logout/>
           <HeaderVenta/>
           <Ventas/>
-        </Route>
-        <Route path="/Nventa" exact>
+        </PrivateRoute>
+        <PrivateRoute path="/Nventa" exact>
           <NavBar pagina={"/Nventa"}/>
+          <Logout/>
           <NVentas/>
-        </Route>
-        <Redirect component={NotFound}></Redirect>
+        </PrivateRoute>
+        {/* <Redirect component={NotFound}></Redirect> */}
       </Switch>
     </Router>
   );

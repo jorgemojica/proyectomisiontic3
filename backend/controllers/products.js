@@ -1,4 +1,3 @@
-const producto = require("../models/producto");
 const Producto = require("../models/producto");
 
 exports.getProducts = (req, res) => {
@@ -42,7 +41,7 @@ exports.getProductoDisponible = (req, res) => {
 
 exports.deleteProduct = (req, res) => {
   const id = req.params.id;
-  producto.deleteOne({_id : id}).then((productoResult) =>{
+  Producto.deleteOne({_id : id}).then((productoResult) =>{
     res.status(200).json("Eliminado satisfactoriamente");
   })
 }
@@ -56,7 +55,7 @@ exports.editProductId = (req, res) => {
     precio: req.body.precio,
     url: req.body.url
   });
-  producto.findByIdAndUpdate(id, productoUpd).then((productoResult) =>{
+  Producto.findByIdAndUpdate(id, productoUpd).then((productoResult) =>{
     res.status(200).json("El Producto se actualizo satisfactoriamente");
   })
 }
