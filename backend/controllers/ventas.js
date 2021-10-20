@@ -77,6 +77,13 @@ exports.editVentastId = (req, res) => {
   const id = req.params.id;
   const ventasUpd = new Ventas({
     _id: id,
+    cantidad:req.body.cantidad,
+    price:req.body.price,
+    vventas:req.body.vventas,
+    fecha:req.body.fecha,
+    cliente:req.body.cliente,
+    cedula:req.body.cedula,
+    vendedor:req.body.vendedor,
     estado:req.body.estado,
   });
   ventas.findByIdAndUpdate(id, ventasUpd).then((productoResult) =>{

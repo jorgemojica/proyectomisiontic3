@@ -16,7 +16,76 @@ const ProductForm = ({handleChange, handleClick,formValue}) =>{
                   value={formValue.nventas}/>
                   </Col>
                 </Form.Group>
-
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Cantidad:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="cantidad"
+                  onChange={handleChange} placeholder="Cantidad"
+                  value={formValue.cantidad}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Precio:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="price"
+                  onChange={handleChange} placeholder="Precio"
+                  value={formValue.price}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Valor venta:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="vventas"
+                  onChange={handleChange} placeholder="Ventas"
+                  value={formValue.vventas}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Fecha:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="fecha"
+                  onChange={handleChange} placeholder="Ventas"
+                  value={formValue.fecha}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Cliente:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="cliente"
+                  onChange={handleChange} placeholder="Cliente"
+                  value={formValue.cliente}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Cedula:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="cedula"
+                  onChange={handleChange} placeholder="Cliente"
+                  value={formValue.cedula}/>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-4 mt-4 bold" controlId="formNombre">
+                  <Form.Label column sm={2}>
+                    Vendedor:
+                  </Form.Label>
+                  <Col md={12}sm={10}>
+                    <Form.Control type="text" name="vendedor"
+                  onChange={handleChange} placeholder="Vendedor"
+                  value={formValue.vendedor}/>
+                  </Col>
+                </Form.Group>
                 <Form.Group as={Row} className="mb-5" controlId="formPlaintextPassword">
                   <Form.Label column sm="2" >
                   Estado

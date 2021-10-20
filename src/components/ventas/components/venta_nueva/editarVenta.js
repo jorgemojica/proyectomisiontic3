@@ -18,6 +18,13 @@ function Editarproducto() {
    
     nventas: "",
     estado: "",
+    cantidad:"",
+    price:"",
+    vventas:"",
+    fecha:"",
+    cliente:"",
+    cedula:"",
+    vendedor:"",
   });
 
   useEffect(() => {

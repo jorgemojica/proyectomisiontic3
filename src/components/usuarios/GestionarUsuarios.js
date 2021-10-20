@@ -47,7 +47,7 @@ const GestionarUsuarios = () => {
                                 <td>{usuario.nombre}</td>
                                 <td>{usuario.email}</td>
                                 <td>{usuario.rol}</td>
-                                <td>{usuario.activo}</td>
+                                <td>{(usuario.activo)?("Activo"):("Inactivo")}</td>
                                 <td>
                                     {/* <Link className="p-0" to="/editarUsuario">
                                         <Button variant="warning">Editar</Button>

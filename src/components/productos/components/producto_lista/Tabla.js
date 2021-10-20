@@ -48,7 +48,7 @@ const Tabla = ()=>{
           <Form.Control
               onChange={event => setTitle(event.target.value)} 
               type="text"
-              placeholder="ID o Nombre"
+              placeholder="ID"
               aria-label="Input group example"
               aria-describedby="btnGroupAddon2"
           />
