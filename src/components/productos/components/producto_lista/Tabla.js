@@ -12,27 +12,33 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 const Tabla = ()=>{
     const [productos, setProductos] = useState([]);
+    const [productosGestion, setProductosGestion] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await api.products.list();
       setProductos(response);
+      setProductosGestion(response);
     };
-
     fetchData();
   }, []);
+  
   const [title, setTitle] = useState('')
   const getProduct= async (event) =>{
-    // const id = event.target.id;
     const response = await api.products.getProduct(title);
-    setProductos([response]);
-    // const response1 = await api.products.getName(title);
-    // setProductos([response1]);
+    setProductosGestion([response]);
+  };
+  const getProduct2= async() =>{
+    const ProductosFilter = productos.filter((product) => product.nombre===title).map(product => product._id);
+    const response = await api.products.getProduct(ProductosFilter);
+    setProductosGestion([response]);
+    console.log(ProductosFilter);
+    
   };
   const deleteProduct =(event) =>{
     const id = event.target.id;
     api.products.delete(id);
-    const newProducts = productos.filter((product) => product._id !== id);
-    setProductos(...[newProducts]);
+    const newProducts = productosGestion.filter((product) => product._id !== id);
+    setProductosGestion(...[newProducts]);
   };
     return(
       <Col xs={12}>
@@ -48,11 +54,14 @@ const Tabla = ()=>{
           <Form.Control
               onChange={event => setTitle(event.target.value)} 
               type="text"
-              placeholder="ID"
+              placeholder="ID o Nombre"
               aria-label="Input group example"
               aria-describedby="btnGroupAddon2"
+              className="me-3"
           />
-          <Button onClick={getProduct} variant="primary">Buscar producto</Button>
+          <label className="me-3 p-1">Buscar:</label>
+          <Button className="me-3 p-2" onClick={getProduct} variant="primary">ID</Button>
+          <Button onClick={getProduct2} variant="primary">Nombre</Button>
           </InputGroup>
           
       </ButtonToolbar>
@@ -70,7 +79,7 @@ const Tabla = ()=>{
             </thead> 
             <tbody>
             
-            {productos.map(item => (
+            {productosGestion.map(item => (
                 
             <tr key={item.url}>
                 <td><img className="imagen"src={item.url} alt=""/></td>

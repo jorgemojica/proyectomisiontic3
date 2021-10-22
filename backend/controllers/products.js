@@ -32,7 +32,16 @@ exports.getProductId = (req, res) => {
     }
   });
 };
-
+exports.getProductName = (req, res) => {
+  const name =req.params.nombre;
+  Producto.find({nombre:{$regex:".*"+name+".*"}}).then((productos) => {
+    if (productos) {
+      res.status(200).json(productos);
+    } else {
+      res.status(404).json("Producto no encontrado");
+    }
+  });
+};
 exports.getProductoDisponible = (req, res) => {
   Producto.find({ stock:124 }).exec().then((productoResult) => {
     res.status(200).json(productoResult);

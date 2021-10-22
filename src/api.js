@@ -35,8 +35,8 @@ const api = {
     getProduct(id) {
       return callApi(`/products/${id}`);
     },
-    getName(id) {
-      return callApi(`/products/disponibles/${id}`);
+    getName(name) {
+      return callApi(`/products/nombre/${name}`);
     },
   },
   // ventas
