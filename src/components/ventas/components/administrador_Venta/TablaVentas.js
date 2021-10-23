@@ -68,7 +68,7 @@ const TablaVentas = ()=>{
           />
           <label className="me-3 p-1">Buscar:</label>
           <Button className="me-3 p-2" onClick={getVentasId} variant="primary">ID</Button>
-          <Button onClick={getVenta2} variant="primary">Nombre</Button>
+          <Button onClick={getVenta2} variant="primary">No.Factura</Button>
           </InputGroup>
           
       </ButtonToolbar>
