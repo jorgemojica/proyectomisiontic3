@@ -61,7 +61,7 @@ const TablaVentas = ()=>{
           <Form.Control
              onChange={event => setTitle(event.target.value)} 
               type="text"
-              placeholder="ID o Nombre"
+              placeholder="ID o Numero de factura"
               aria-label="Input group example"
               aria-describedby="btnGroupAddon2"
               className="me-3"
