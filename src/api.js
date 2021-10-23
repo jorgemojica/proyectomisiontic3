@@ -64,7 +64,10 @@ const api = {
       return callApi(`/ventas/${id}`);
 
     },
-
+    
+    getName(name) {
+      return callApi(`/ventas/nombre/${name}`);
+    },
 
     edit(ventas) {
       return callApi(`/ventas/${ventas._id}`, {
@@ -72,6 +75,8 @@ const api = {
         body: JSON.stringify(ventas),
       });
     },
+    
+    
 
   },
 

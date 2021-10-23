@@ -73,6 +73,17 @@ exports.deleteVentas = (req, res) => {
   })
 }
 
+exports.getVentaName = (req, res) => {
+  const name =req.params.nventas;
+  Producto.find({nombre:{$regex:".*"+name+".*"}}).then((ventas) => {
+    if (ventas) {
+      res.status(200).json(ventas);
+    } else {
+      res.status(404).json("Producto no encontrado");
+    }
+  });
+};
+
 exports.editVentastId = (req, res) => {
   const id = req.params.id;
   const ventasUpd = new Ventas({
